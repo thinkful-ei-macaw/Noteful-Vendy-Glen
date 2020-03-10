@@ -6,7 +6,7 @@ class RenderFolderList extends React.Component {
 
 
     render() {
-        console.log(this.props)
+
 
 
         const folderData = this.props.name;
