@@ -1,15 +1,16 @@
 import React from 'react';
 import MainNoteComponent from './MainNoteComponent';
-import MainFolderComponent from './MainFolderComponent';
+import FolderList from './FolderList';
 import './Mainbody.css';
 
 class MainBody extends React.Component {
 
     render() {
+
         return (
             <section className="main-body">
                 <div className="component-body">
-                    <MainFolderComponent />
+                    <FolderList store={this.props.store} />
                     <MainNoteComponent />
                 </div>
             </section>
