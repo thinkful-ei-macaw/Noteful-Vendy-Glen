@@ -9,14 +9,18 @@ class MainNoteComponent extends React.Component {
 
     render() {
         let notes = [];
-        if (this.props.store)
-            notes = this.props.store.notes.map(result => {
-                return <RenderNoteComponent key={result.id} content={result.content} folderId={result.folderId} id={result.id} modified={result.modified} name={result.name} />
+        console.log(this.props.notes)
+            notes = this.props.notes.map(result => {
+                return <RenderNoteComponent key={result.id} 
+                content={result.content} 
+                olderId={result.folderId} 
+                id={result.id} modified={result.modified} 
+                name={result.name} />
             })
         return (
             <section>
                 <ul>
-                    <li>{notes}</li>
+                    {notes}
 
                 </ul>
                 <button type="submit">Add Note</button>

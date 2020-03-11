@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class RenderFolderList extends React.Component {
@@ -12,9 +13,13 @@ class RenderFolderList extends React.Component {
         const folderData = this.props.name;
 
         return (
-            <section>
-                <li>{folderData}</li>
-            </section>
+      
+                <li>
+                    <Link to= {'/folder/' + this.props.id} > 
+                    {folderData} 
+                    </Link>
+                </li>
+            
         )
     }
 }

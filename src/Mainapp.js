@@ -1,45 +1,66 @@
-import React from 'react';
-import Mainheader from './Mainheader';
-import NoteList from './NoteList';
-import FolderList from './Folder/FolderList';
-import { Switch, Route, Router } from 'react-router-dom';
-import store from './store';
-import './App.css';
-
+import React from "react";
+import DetailedNote from "./DetailedNote";
+import { Switch, Route } from "react-router-dom";
+import store from "./store";
+import "./App.css";
+import MainPage from "./MainPage";
+import MainFolderPage from "./MainFolderPage";
 
 class Mainapp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       store: store
-
-    }
+    };
   }
-
-
-
 
   render() {
 
 
     return (
-      <div>
-        <Router>
-          <Switch>
-            <section className="App">
-              <Mainheader />
-              <Route path='/NotePath/Notes' component={NoteList} store={this.state.store} />
-              <Route path='/FolderPath/Folder' component={FolderList} />
-            </section>
-          </Switch>
-        </Router>
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <MainPage
+              folders={this.state.store.folders}
+              notes={this.state.store.notes}
+            />
+          )}
+        />
+        <Route
+          path="/folder/:folderId"
+          exact
+          render={routerProps => (
+            <MainFolderPage
+              notes={this.state.store.notes.filter(
+                note => note.folderId === routerProps.match.params.folderId
+              )}
+              folders={this.state.store.folders}
+            />
+          )}
+        />
+        <Route
+          path="/note/:noteId"
+          exact
+          render={routerProps => {
+            let firstNote =this.state.store.notes.filter(
+              note => note.id === routerProps.match.params.noteId
+            )[0]
+            return <DetailedNote
+              history={routerProps.history}
+              note={firstNote}
+              folder= {this.state.store.folders.filter(folder => folder.id === firstNote.folderId)[0]}
+            />
+          }}
+        />
 
-      </div>
-    )
+        <Route path="*" render={() => <h1>404 page not found</h1>} />
+      </Switch>
+    );
 
-
-
+    
   }
 }
 

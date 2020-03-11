@@ -7,13 +7,13 @@ import './Mainbody.css';
 class NoteList extends React.Component {
 
     render() {
-
+        console.log(this.props.notes)
         return (
             <section className="main-body">
                 <div className="component-body">
-                    <FolderList store={this.props.store} />
+                    {/* <FolderList store={this.props.store} /> */}
                     {/* <Route exact path='/' component={FolderList} /> */}
-                    <MainNoteComponent store={this.props.store} />
+                    <MainNoteComponent notes={this.props.notes} />
 
                 </div>
             </section>

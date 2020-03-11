@@ -12,14 +12,15 @@ class FolderList extends React.Component {
     render() {
 
         let folders = [];
-        if (this.props.store)
-            folders = this.props.store.folders.map(result => {
-                return <RenderFolderList key={result.id} id={result.id} name={result.name} />
+
+            folders = this.props.folders.map(result => {
+                return <RenderFolderList key={result.id} 
+                id={result.id} name={result.name} />
             })
         return (
             <section >
                 <ul>
-                    <li>{folders}</li>
+                    {folders}
                 </ul>
                 <button type="submit">Add Folder</button>
             </section>

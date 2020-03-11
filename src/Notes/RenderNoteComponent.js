@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class RenderNoteComponent extends React.Component {
 
@@ -9,9 +9,14 @@ class RenderNoteComponent extends React.Component {
         const modified = this.props.modified;
         return (
 
-            <section>
-                <li>{name} <br />{modified} <br /><button type="submit">Delete</button></li>
-            </section>
+          
+                <li>
+                    <Link to ={"/note/"+ this.props.id} >
+                        {name} <br />{modified} <br />
+                    <button type="submit">Delete</button>
+                    </Link>
+                </li>
+            
 
         )
     }
