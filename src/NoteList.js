@@ -1,6 +1,5 @@
 import React from 'react';
 import MainNoteComponent from './Notes/MainNoteComponent';
-import FolderList from './Folder/FolderList';
 import './Mainbody.css';
 
 class NoteList extends React.Component {
@@ -9,12 +8,7 @@ class NoteList extends React.Component {
 
         return (
             <section className="main-body">
-                <div className="component-body">
-                    <FolderList store={this.props.store} />
-
-                    <MainNoteComponent store={this.props.store} />
-
-                </div>
+                <MainNoteComponent store={this.props.store} />
             </section>
         )
     }

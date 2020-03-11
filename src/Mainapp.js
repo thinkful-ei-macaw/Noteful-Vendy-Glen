@@ -2,7 +2,6 @@ import React from 'react';
 import Mainheader from './Mainheader';
 import NoteList from './NoteList';
 import FolderList from './Folder/FolderList';
-import { Switch, Route } from 'react-router-dom';
 import store from './store';
 import './App.css';
 
@@ -25,17 +24,14 @@ class Mainapp extends React.Component {
 
     return (
       <div>
-
-        <Switch>
-          <section className="App">
-            <Mainheader />
-            <Route path='/NotePath/Notes' component={NoteList} store={this.state.store} />
-            <Route path='/FolderPath/Folder' component={FolderList} />
-          </section>
-        </Switch>
-
+        <Mainheader />
+        <section className="App">
+          <FolderList store={this.state.store} />
+          <NoteList store={this.state.store} />
+        </section>
       </div>
     )
+
 
 
 
@@ -43,3 +39,10 @@ class Mainapp extends React.Component {
 }
 
 export default Mainapp;
+/* <Route path='/' render={() => (
+
+  )}
+  />
+  <Route path='/' render={() => (
+
+  )} /> */

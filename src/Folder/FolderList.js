@@ -4,10 +4,10 @@ import RenderFolderList from './RenderFolderList';
 
 class FolderList extends React.Component {
 
-    static defaultProps = {
-        folders: [],
-        notes: []
-    }
+    // static defaultProps = {
+    //     folders: [],
+    //     notes: []
+    // }
 
     render() {
 

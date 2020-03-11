@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 class RenderNoteComponent extends React.Component {
 
     render() {
