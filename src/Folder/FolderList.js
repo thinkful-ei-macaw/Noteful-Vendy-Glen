@@ -2,6 +2,7 @@ import React from 'react';
 import RenderFolderList from './RenderFolderList';
 
 
+
 class FolderList extends React.Component {
 
     // static defaultProps = {
@@ -17,10 +18,13 @@ class FolderList extends React.Component {
                 return <RenderFolderList key={result.id} id={result.id} name={result.name} />
             })
         return (
-            <section >
+            <section>
                 <ul>
-                    <li>{folders}</li>
+                    <li>
+                        {folders}
+                    </li>
                 </ul>
+
                 <button type="submit">Add Folder</button>
             </section>
         )
